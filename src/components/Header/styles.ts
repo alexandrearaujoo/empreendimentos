@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 export const HeaderStyled = styled.header`
   background-color: #fff;
+  backdrop-filter: blur(5px);
   position: fixed;
   top: 0;
   width: 100%;
