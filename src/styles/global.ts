@@ -39,7 +39,6 @@ export default createGlobalStyle`
         background-color: #F8F7FC;
         position: relative;
         height: 100vh;
-        display: flex;
         overflow-x: hidden;
     }
     button{
