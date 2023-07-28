@@ -1,3 +1,5 @@
+'use client'
+
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonStyled } from './styles';
 import { Plus } from 'lucide-react';
