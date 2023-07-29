@@ -1,16 +1,19 @@
-'use client'
+'use client';
 
 import { ButtonHTMLAttributes } from 'react';
+
 import { ButtonStyled } from './styles';
+
 import { Plus } from 'lucide-react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: boolean;
+  maxW?: number;
 }
 
-const Button = ({ children, icon, ...rest }: ButtonProps) => {
+const Button = ({ children, icon, maxW, ...rest }: ButtonProps) => {
   return (
-    <ButtonStyled {...rest}>
+    <ButtonStyled {...rest} maxW={maxW}>
       {children} {icon && <Plus size={20} fill="white" />}
     </ButtonStyled>
   );

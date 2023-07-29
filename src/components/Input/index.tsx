@@ -1,5 +1,7 @@
 import { InputHTMLAttributes } from 'react';
+
 import { Container, InputStyled } from './styles';
+
 import { Search } from 'lucide-react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
