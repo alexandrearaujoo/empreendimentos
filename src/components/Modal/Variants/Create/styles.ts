@@ -9,6 +9,7 @@ export const Form = styled.form`
 
   > button {
     margin: 0 auto;
+    margin-top: 1.5rem;
   }
 
   > svg {

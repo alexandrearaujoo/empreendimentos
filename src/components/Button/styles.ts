@@ -2,9 +2,11 @@
 
 import { css, styled } from 'styled-components';
 
-export const ButtonStyled = styled.button<{ maxW?: number }>`
+export const ButtonStyled = styled.button<{
+  maxW?: number;
+  headerButton?: boolean;
+}>`
   display: inline-flex;
-  padding: 0.625rem 2.5rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
@@ -17,10 +19,31 @@ export const ButtonStyled = styled.button<{ maxW?: number }>`
   transition: 0.5s;
   width: 100%;
 
+  > svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #fff;
+  }
+
   ${({ maxW }) =>
     maxW &&
     css`
-      max-width: ${maxW}rem;
+      max-width: 2rem;
+      height: 2rem;
+
+      @media screen and (min-width: 628px) {
+        max-width: ${maxW}rem;
+      }
+    `}
+
+  ${({ headerButton }) =>
+    headerButton &&
+    css`
+      @media screen and (min-width: 628px) {
+        &::before {
+          content: 'Adicionar';
+        }
+      }
     `}
 
   &:hover {

@@ -2,6 +2,7 @@
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import Select from '@/components/Select';
 
 import { DivAddress, Form } from './styles';
 
@@ -14,9 +15,16 @@ const UpdateModal = () => {
   return (
     <Form>
       <X size={20} onClick={onCloseUpdateModal} />
-      <Input placeholder="Lançamento" />
+      <Select
+        options={[
+          'Breve lançamento',
+          'Lançamento',
+          'Em obras',
+          'Pronto pra morar'
+        ]}
+      />
       <Input placeholder="Nome do empreendimento" />
-      <Input placeholder="Residencial" />
+      <Select options={['Residencial', 'Comercial']} />
       <Input placeholder="CEP" />
       <DivAddress>
         <p>Rua</p>

@@ -17,9 +17,12 @@ const Header = () => {
     <>
       <HeaderStyled>
         <H1>Empreendimentos</H1>
-        <Button icon maxW={12} onClick={onCreateModalOpen}>
-          Adicionar
-        </Button>
+        <Button
+          icon
+          maxW={12}
+          onClick={onCreateModalOpen}
+          headerButton
+        ></Button>
       </HeaderStyled>
       {isCreateModalOpen && (
         <Modal variant="create" title="Criar empreendimento" />
