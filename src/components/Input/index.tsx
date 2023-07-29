@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, forwardRef } from 'react';
 
 import { Container, InputStyled } from './styles';
 
@@ -6,15 +6,21 @@ import { Search } from 'lucide-react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: boolean;
+  errors?: string;
 }
 
-const Input = ({ icon, ...rest }: InputProps) => {
-  return (
-    <Container>
-      {icon && <Search size={15} color="black" />}
-      <InputStyled {...rest} />
-    </Container>
-  );
-};
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ icon, errors, ...rest }, ref) => {
+    return (
+      <Container>
+        {icon && <Search size={15} color="black" />}
+        <InputStyled {...rest} ref={ref} />
+        {errors && <span>{errors}</span>}
+      </Container>
+    );
+  }
+);
+
+Input.displayName = 'Input';
 
 export default Input;
