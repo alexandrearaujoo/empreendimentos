@@ -1,14 +1,14 @@
 {
   "functions": {
-    "api/server.js": {
+    "api/server.ts": {
       "memory": 1024,
-      "includeFiles": "enterprise-server.json"
+      "includeFiles": "enterprises-server.json"
     }
   },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "api/server.js"
+      "destination": "api/server.ts"
     }
   ]
 }
