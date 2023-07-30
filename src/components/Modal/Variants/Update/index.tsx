@@ -3,19 +3,25 @@
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Select from '@/components/Select';
+import Spinner from '@/components/Spinner';
 
 import { DivAddress, Form } from './styles';
 
+import { useUpdateEnterprise } from '@/hooks/useUpdateEnterprise';
 import { modalStore } from '@/stores/modalStore';
 import { X } from 'lucide-react';
 
 const UpdateModal = () => {
   const onCloseUpdateModal = modalStore((state) => state.onCloseUpdateModal);
+  const enterprise = modalStore((state) => state.enterprise);
+  const { register, handleSubmit, onSubmit, isSubmitting, address } =
+    useUpdateEnterprise(enterprise);
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <X size={20} onClick={onCloseUpdateModal} />
       <Select
+        {...register('status')}
         options={[
           'Breve lançamento',
           'Lançamento',
@@ -23,16 +29,24 @@ const UpdateModal = () => {
           'Pronto pra morar'
         ]}
       />
-      <Input placeholder="Nome do empreendimento" />
-      <Select options={['Residencial', 'Comercial']} />
-      <Input placeholder="CEP" />
+      <Input placeholder="Nome do empreendimento" {...register('name')} />
+      <Select options={['Residencial', 'Comercial']} {...register('purpose')} />
+      <Input placeholder="CEP" {...register('address.cep')} />
       <DivAddress>
-        <p>Rua</p>
-        <p>Bairro</p>
-        <p>SP</p>
+        <p>Rua: {address.street}</p>
+        <p>Bairro: {address.district}</p>
+        <p>{address.city}</p>
       </DivAddress>
-      <Input placeholder="Número" />
-      <Button maxW={19.625}>Atualizar</Button>
+      <Input placeholder="Número" {...register('address.number')} />
+      <Button maxW={19.625} disabled={isSubmitting} type="submit">
+        {isSubmitting ? (
+          <>
+            <Spinner /> Atualizando...
+          </>
+        ) : (
+          'Atualizar'
+        )}
+      </Button>
     </Form>
   );
 };

@@ -6,7 +6,10 @@ const addressSchema = z.object({
   street: z.string(),
   state: z.string(),
   number: z.string().min(1, 'Minimo de 1 caracter'),
-  cep: z.string().min(1, 'Minimo de 1 caracter')
+  cep: z
+    .string()
+    .min(1, 'Minimo de 1 caracter')
+    .transform((field) => field.replace(/\D/gm, ''))
 });
 
 export const createEnterpriseSchema = z.object({

@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
+import Header from '@/components/Header';
+
 import StyledComponentsRegistry from '@/lib/registry';
 import Global from '@/styles/global';
-import Header from '@/components/Header';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 

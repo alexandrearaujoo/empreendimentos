@@ -10,6 +10,7 @@ export const ButtonStyled = styled.button<{
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem;
   font-size: 1rem;
   border-radius: 4.4375rem;
   background-color: #4f46bb;

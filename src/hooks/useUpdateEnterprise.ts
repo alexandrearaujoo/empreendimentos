@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-import { Address } from '@/interfaces';
+import { Address, Enterprise } from '@/interfaces';
 import { api } from '@/lib/api';
 import {
   EnterpriseRequest,
@@ -13,33 +13,19 @@ import { getAddress } from '@/services/getAddress';
 import { modalStore } from '@/stores/modalStore';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-export const useCreateEnterprise = () => {
+export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
   const router = useRouter();
-  const onCloseCreateModal = modalStore((state) => state.onCloseCreateModal);
+  const onCloseUpdateModal = modalStore((state) => state.onCloseUpdateModal);
 
   const {
     register,
     handleSubmit,
-    reset,
     watch,
     setValue,
-    formState: { errors, isSubmitting }
+    formState: { isSubmitting, errors }
   } = useForm<EnterpriseRequest>({
     resolver: zodResolver(createEnterpriseSchema),
-    mode: 'all',
-    defaultValues: {
-      name: '',
-      purpose: 'Residencial',
-      status: 'Lançamento',
-      address: {
-        cep: '',
-        city: '',
-        district: '',
-        number: '',
-        state: '',
-        street: ''
-      }
-    }
+    defaultValues: enterprise || {}
   });
 
   const zipCode = watch('address.cep');
@@ -87,23 +73,15 @@ export const useCreateEnterprise = () => {
 
   const onSubmit = async (data: EnterpriseRequest) => {
     try {
-      await api.post('/enterprises', data);
+      await api.patch(`/enterprises/${enterprise?.id}`, data);
     } catch (error) {
-      toast.error('Erro ao criar empreendimento!');
+      toast.error('Erro ao atualizar empreendimento!');
     } finally {
       router.refresh();
-      reset();
-      toast.success('Empreendimento criado com sucesso!');
-      onCloseCreateModal();
+      onCloseUpdateModal();
+      toast.success('Empreendimento atualizado com sucesso!');
     }
   };
 
-  return {
-    register,
-    handleSubmit,
-    onSubmit,
-    errors,
-    isSubmitting,
-    address
-  };
+  return { onSubmit, register, handleSubmit, isSubmitting, errors, address };
 };

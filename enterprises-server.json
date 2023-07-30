@@ -1,0 +1,46 @@
+{
+  "enterprises": [
+    {
+      "status": "Lançamento",
+      "name": "Alexandre Araujo",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755-380"
+      },
+      "id": 1
+    },
+    {
+      "status": "Lançamento",
+      "name": "Alexandre Araujo",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755-380"
+      },
+      "id": 2
+    },
+    {
+      "status": "Breve lançamento",
+      "name": "Camisetas",
+      "purpose": "Residencial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Maria Mari",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755390"
+      },
+      "id": 3
+    }
+  ]
+}
