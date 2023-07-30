@@ -11,7 +11,7 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "start": "node index.ts",
+    "start": "node server.ts",
     "dev": "tsx watch src/server.ts"
   },
   "dependencies": {
