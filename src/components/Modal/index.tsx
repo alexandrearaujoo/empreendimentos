@@ -6,9 +6,6 @@ import CreateModal from './Variants/Create';
 import DeleteModal from './Variants/Delete';
 import UpdateModal from './Variants/Update';
 
-import { modalStore } from '@/stores/modalStore';
-import { X } from 'lucide-react';
-
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin']
