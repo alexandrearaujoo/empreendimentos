@@ -31,18 +31,18 @@ Para consulta do CEP poderá utilizar API pública [ViaCEP](https://viacep.com.b
 ## Criar uma aplicação NextJS
 - [x] Rodar na web
 - [x] Utilizar Typescript
-- [ ] Listar Empreendimentos
-- [ ] Criar Empreendimento
-- [ ] Editar Empreendimento
-- [ ] Deletar Empreendimento
+- [x] Listar Empreendimentos
+- [x] Criar Empreendimento
+- [x] Editar Empreendimento
+- [x] Deletar Empreendimento
 - [x] Styled-components para construção do layout 
-- [ ] Responsivo
+- [x] Responsivo
 - [x] Subir no github
 - [x] Ser publicado na Vercel
 
 ## Ideias de melhorias
 - [x] Feedback de ações (Sucesso, falha etc)
-- [ ] Utilizar o getServerSideProps
+- [x] Utilizar o getServerSideProps
 - [x] utilizar o axios
 - [ ] Filtrar pelo nome do empreendimento.
 - [ ] Paginação.

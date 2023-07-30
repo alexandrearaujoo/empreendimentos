@@ -11,11 +11,3 @@ export const Main = styled.main`
     padding-inline: 6rem;
   }
 `;
-
-export const Ul = styled.ul`
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
