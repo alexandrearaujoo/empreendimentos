@@ -38,7 +38,7 @@ const EnterpriseList = () => {
           </>
         )}
       </Ul>
-      {!isEnd && filteredEnterprises.length >= 5 && (
+      {!isEnd && filteredEnterprises.length >= 10 && (
         <LoadMore>
           <Button onClick={() => setCurrentPage(currentPage + 1)} maxW={19.325}>
             Carregar mais
