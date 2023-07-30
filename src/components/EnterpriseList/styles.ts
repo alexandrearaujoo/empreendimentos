@@ -21,5 +21,5 @@ export const BackToTop = styled.div`
   bottom: 0;
   right: 0;
   padding: 1rem;
-  background: #fff;
+  background: transparent;
 `;

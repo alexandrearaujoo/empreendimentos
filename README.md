@@ -44,5 +44,5 @@ Para consulta do CEP poderá utilizar API pública [ViaCEP](https://viacep.com.b
 - [x] Feedback de ações (Sucesso, falha etc)
 - [x] Utilizar o getServerSideProps
 - [x] utilizar o axios
-- [ ] Filtrar pelo nome do empreendimento.
+- [x] Filtrar pelo nome do empreendimento.
 - [ ] Paginação.
