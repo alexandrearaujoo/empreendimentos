@@ -1,3 +1,4 @@
+import cors from 'cors';
 import server from 'json-server';
 import path from 'path';
 
@@ -7,6 +8,7 @@ const router = server.router(
 );
 const middlewares = server.defaults();
 
+jsonServer.use(cors());
 jsonServer.use(middlewares);
 jsonServer.use(router);
 
