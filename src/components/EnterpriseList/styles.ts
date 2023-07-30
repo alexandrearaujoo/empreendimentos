@@ -9,3 +9,17 @@ export const Ul = styled.ul`
   flex-direction: column;
   gap: 2rem;
 `;
+
+export const LoadMore = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BackToTop = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  background: #fff;
+`;

@@ -41,6 +41,62 @@
         "cep": "06755390"
       },
       "id": 3
+    },
+    {
+      "status": "Em obras",
+      "name": "teste",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755380"
+      },
+      "id": 4
+    },
+    {
+      "status": "Pronto pra morar",
+      "name": "test",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755380"
+      },
+      "id": 5
+    },
+    {
+      "status": "Breve lançamento",
+      "name": "Alexandre Araujo",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755380"
+      },
+      "id": 6
+    },
+    {
+      "status": "Pronto pra morar",
+      "name": "teste",
+      "purpose": "Comercial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755380"
+      },
+      "id": 7
     }
   ]
 }

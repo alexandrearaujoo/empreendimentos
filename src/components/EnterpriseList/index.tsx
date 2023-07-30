@@ -1,16 +1,20 @@
 'use client';
-import { useState } from 'react';
 
+import Button from '../Button';
 import Card from '../Card';
 import Input from '../Input';
-import { Ul } from './styles';
+import { BackToTop, LoadMore, Ul } from './styles';
 
 import { useFilterByName } from '@/hooks/useFilterByName';
-import { Enterprise } from '@/interfaces';
+import { usePagination } from '@/hooks/usePagination';
+import { scrollToTop } from '@/lib/scrollToTop';
+import { ChevronUp } from 'lucide-react';
 
-const EnterpriseList = ({ enterprises }: { enterprises: Enterprise[] }) => {
-  const [name, setName] = useState('');
-  const { filteredEnterprises } = useFilterByName(enterprises, name);
+const EnterpriseList = () => {
+  const { currentPage, setCurrentPage, newEnterprises, isEnd } =
+    usePagination();
+
+  const { filteredEnterprises, setName } = useFilterByName(newEnterprises);
 
   return (
     <>
@@ -28,12 +32,24 @@ const EnterpriseList = ({ enterprises }: { enterprises: Enterprise[] }) => {
           </>
         ) : (
           <>
-            {enterprises.map((enterprise) => (
+            {newEnterprises.map((enterprise) => (
               <Card key={enterprise.id} enterprise={enterprise} />
             ))}
           </>
         )}
       </Ul>
+      {!isEnd && filteredEnterprises.length >= 5 && (
+        <LoadMore>
+          <Button onClick={() => setCurrentPage(currentPage + 1)} maxW={19.325}>
+            Carregar mais
+          </Button>
+        </LoadMore>
+      )}
+      <BackToTop>
+        <Button onClick={scrollToTop}>
+          <ChevronUp />
+        </Button>
+      </BackToTop>
     </>
   );
 };
