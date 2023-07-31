@@ -12,13 +12,17 @@ export const Div = styled.div`
   > svg {
     position: absolute;
     top: 2rem;
-    right: 2rem;
+    right: 0.2rem;
     cursor: pointer;
     transition: 0.5s;
     color: #4f46bb;
 
     &:hover {
       color: #8e85ff;
+    }
+
+    @media screen and (min-width: 360px) {
+      right: 2rem;
     }
   }
 

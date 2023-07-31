@@ -7,7 +7,7 @@ const addressSchema = z.object({
   state: z.string(),
   number: z.string().min(1, 'Minimo de 1 caracter'),
   cep: z
-    .string()
+    .string({ required_error: 'CEP obrigatório' })
     .min(1, 'Minimo de 1 caracter')
     .transform((field) => field.replace(/\D/gm, ''))
 });

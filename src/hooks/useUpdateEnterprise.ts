@@ -12,6 +12,7 @@ import {
 import { getAddress } from '@/services/getAddress';
 import { modalStore } from '@/stores/modalStore';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
 
 export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
   const router = useRouter();
@@ -59,14 +60,18 @@ export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
 
         handleSetAddress(address);
       } catch (error) {
-        console.log(error);
+        if (error instanceof AxiosError) {
+          toast.error('Informe um CEP válido!');
+          return;
+        }
+        toast.error('Erro ao buscar endereço!');
       }
     },
     [handleSetAddress]
   );
 
   useEffect(() => {
-    if (zipCode.length !== 8) return;
+    if (zipCode && zipCode.length !== 8) return;
 
     handleFetchAddress(zipCode);
   }, [handleFetchAddress, zipCode]);

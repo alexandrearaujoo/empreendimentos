@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRef } from 'react';
 import { toast } from 'react-hot-toast';
 
 import { api } from '@/lib/api';
@@ -9,16 +9,16 @@ export const useDeleteEnterprise = (id: number | null) => {
   const router = useRouter();
   const onCloseDeleteModal = modalStore((state) => state.onCloseDeleteModal);
 
-  const [loading, setLoading] = useState(false);
+  const loading = useRef<boolean>(false);
 
   const onClick = async () => {
-    setLoading(true);
+    loading.current = true;
     try {
       await api.delete(`/enterprises/${id}`);
     } catch (error) {
       toast.error('Erro ao deletar empreendimento');
     } finally {
-      setLoading(false);
+      loading.current = false;
       router.refresh();
       toast.success('Empreendimento deletado com sucesso!');
       onCloseDeleteModal();

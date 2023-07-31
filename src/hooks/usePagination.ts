@@ -1,33 +1,42 @@
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
-import qs from 'query-string';
+import { Enterprise } from '@/interfaces';
+import { getEnterprises } from '@/services/getEnterprises';
 
 export const usePagination = ({
-  page,
-  totalPages
+  enterprises
 }: {
-  page: string;
-  totalPages: string;
+  enterprises: Enterprise[];
 }) => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+  const isFetching = useRef<boolean>(false);
+  const isLastPage = useRef<boolean>(false);
+  const [dataEnterprises, setDataEnterprises] = useState<Enterprise[]>([]);
 
-  const onClick = () => {
-    const current = qs.parse(searchParams.toString());
+  useEffect(() => {
+    setDataEnterprises(enterprises);
 
-    const query = { ...current, page: page >= totalPages ? '1' : +page + 1 };
+    return () => setDataEnterprises(enterprises);
+  }, [enterprises]);
 
-    const url = qs.stringifyUrl(
-      {
-        url: window.location.href,
-        query
-      },
-      { skipNull: true }
-    );
-    router.push(url);
+  const onClick = async (page: string) => {
+    const pageCount = page === '1' ? '2' : Number(page) + 1;
+
+    try {
+      isFetching.current = true;
+      const { data, lastPage } = await getEnterprises(pageCount.toString());
+
+      isLastPage.current = lastPage;
+
+      setDataEnterprises((prev) => [...prev, ...data]);
+    } finally {
+      isFetching.current = false;
+    }
   };
 
   return {
-    onClick
+    onClick,
+    dataEnterprises,
+    isFetching: isFetching.current,
+    isLastPage: isLastPage.current
   };
 };
