@@ -7,14 +7,22 @@ import { BackToTop, LoadMore, Ul } from './styles';
 
 import { useFilterByName } from '@/hooks/useFilterByName';
 import { usePagination } from '@/hooks/usePagination';
+import { Enterprise } from '@/interfaces';
 import { scrollToTop } from '@/lib/scrollToTop';
 import { ChevronUp } from 'lucide-react';
 
-const EnterpriseList = () => {
-  const { currentPage, setCurrentPage, newEnterprises, isEnd } =
-    usePagination();
+const EnterpriseList = ({
+  enterprises,
+  page,
+  totalPages
+}: {
+  enterprises: Enterprise[];
+  page: string;
+  totalPages: string;
+}) => {
+  const { onClick } = usePagination({ page, totalPages });
 
-  const { filteredEnterprises, setName } = useFilterByName(newEnterprises);
+  const { filteredEnterprises, setName } = useFilterByName(enterprises);
 
   return (
     <>
@@ -32,17 +40,15 @@ const EnterpriseList = () => {
           </>
         ) : (
           <>
-            {newEnterprises.map((enterprise) => (
+            {enterprises.map((enterprise) => (
               <Card key={enterprise.id} enterprise={enterprise} />
             ))}
           </>
         )}
       </Ul>
-      {!isEnd && filteredEnterprises.length >= 10 && (
+      {filteredEnterprises.length >= 10 && (
         <LoadMore>
-          <Button onClick={() => setCurrentPage(currentPage + 1)} maxW={19.325}>
-            Carregar mais
-          </Button>
+          <Button onClick={onClick}>Carregar mais</Button>
         </LoadMore>
       )}
       <BackToTop>

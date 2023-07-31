@@ -5,7 +5,7 @@ import Input from '@/components/Input';
 import Select from '@/components/Select';
 import Spinner from '@/components/Spinner';
 
-import { DivAddress, Form } from './styles';
+import { DivAddress, DivButton, Form } from './styles';
 
 import { useCreateEnterprise } from '@/hooks/useCreateEnterprise';
 import { modalStore } from '@/stores/modalStore';
@@ -54,15 +54,17 @@ const CreateModal = () => {
         {...register('address.number')}
         errors={errors.address?.number?.message}
       />
-      <Button maxW={19.625} type="submit">
-        {isSubmitting ? (
-          <>
-            <Spinner /> Criando...
-          </>
-        ) : (
-          'Criar'
-        )}
-      </Button>
+      <DivButton>
+        <Button type="submit">
+          {isSubmitting ? (
+            <>
+              <Spinner /> Criando...
+            </>
+          ) : (
+            'Criar'
+          )}
+        </Button>
+      </DivButton>
     </Form>
   );
 };

@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 import Button from '../Button';
 import { H1, HeaderStyled } from './styles';
@@ -16,7 +17,9 @@ const Header = () => {
   return (
     <>
       <HeaderStyled>
-        <H1>Empreendimentos</H1>
+        <Link href="/">
+          <H1>Empreendimentos</H1>
+        </Link>
         <Button
           icon
           maxW={12}

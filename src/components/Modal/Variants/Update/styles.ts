@@ -36,3 +36,12 @@ export const DivAddress = styled.div`
     font-weight: 500;
   }
 `;
+
+export const DivButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 19.325rem;
+  margin: 0 auto;
+`;

@@ -8,8 +8,14 @@ export const Li = styled.li`
   background-color: #fff;
   border-radius: 0.5rem;
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: space-between;
   box-shadow: 0px 2px 4px 0px rgba(48, 46, 69, 0.06);
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -17,6 +23,10 @@ export const H2 = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  width: 15ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const DivTitles = styled.div`
@@ -69,7 +79,7 @@ export const P = styled.p`
   display: flex;
   height: 0;
   padding: 0.8rem;
-  padding-inline: 1rem;
+  padding-inline: 1.2rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
@@ -79,4 +89,8 @@ export const P = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;

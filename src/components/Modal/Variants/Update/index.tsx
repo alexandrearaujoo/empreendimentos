@@ -5,7 +5,7 @@ import Input from '@/components/Input';
 import Select from '@/components/Select';
 import Spinner from '@/components/Spinner';
 
-import { DivAddress, Form } from './styles';
+import { DivAddress, DivButton, Form } from './styles';
 
 import { useUpdateEnterprise } from '@/hooks/useUpdateEnterprise';
 import { modalStore } from '@/stores/modalStore';
@@ -38,15 +38,17 @@ const UpdateModal = () => {
         <p>{address.city}</p>
       </DivAddress>
       <Input placeholder="Número" {...register('address.number')} />
-      <Button maxW={19.625} disabled={isSubmitting} type="submit">
-        {isSubmitting ? (
-          <>
-            <Spinner /> Atualizando...
-          </>
-        ) : (
-          'Atualizar'
-        )}
-      </Button>
+      <DivButton>
+        <Button disabled={isSubmitting} type="submit">
+          {isSubmitting ? (
+            <>
+              <Spinner /> Atualizando...
+            </>
+          ) : (
+            'Atualizar'
+          )}
+        </Button>
+      </DivButton>
     </Form>
   );
 };

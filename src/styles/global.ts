@@ -29,6 +29,7 @@ export default createGlobalStyle`
         font: inherit;
         vertical-align: baseline;
         list-style: none;
+        text-decoration: none;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,

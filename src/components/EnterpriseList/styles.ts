@@ -14,6 +14,8 @@ export const LoadMore = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 19.325rem;
+  margin: 0 auto;
 `;
 
 export const BackToTop = styled.div`

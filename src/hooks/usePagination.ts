@@ -1,27 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-import { Enterprise } from '@/interfaces';
-import { getEnterprises } from '@/services/getEnterprises';
+import qs from 'query-string';
 
-export const usePagination = () => {
-  const [newEnterprises, setNewEnterprises] = useState<Enterprise[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isEnd, setIsEnd] = useState(false);
+export const usePagination = ({
+  page,
+  totalPages
+}: {
+  page: string;
+  totalPages: string;
+}) => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  useEffect(() => {
-    getEnterprises(currentPage.toString()).then(({ data, totalPages }) => {
-      if (currentPage.toString() > totalPages) {
-        setIsEnd(true);
-        return;
-      }
-      setNewEnterprises((current) => [...current, ...data]);
-    });
-  }, [currentPage]);
+  const onClick = () => {
+    const current = qs.parse(searchParams.toString());
+
+    const query = { ...current, page: page >= totalPages ? '1' : +page + 1 };
+
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query
+      },
+      { skipNull: true }
+    );
+    router.push(url);
+  };
 
   return {
-    newEnterprises,
-    currentPage,
-    isEnd,
-    setCurrentPage
+    onClick
   };
 };
