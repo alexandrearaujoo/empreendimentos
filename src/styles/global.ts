@@ -78,12 +78,12 @@ export default createGlobalStyle`
 }
 *::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: #9D9D9D;
+  background-color: #4f46bb;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #575757;
+  background-color: #8e85ff;
 }
 *::-webkit-scrollbar-thumb:active {
-  background-color: #565656;
+  background-color: #8e85ff;
 }
 `;

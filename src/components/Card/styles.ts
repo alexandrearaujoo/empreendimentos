@@ -66,7 +66,10 @@ export const Span = styled.span`
 `;
 
 export const DivP = styled.div`
+  height: auto;
   display: flex;
+  align-items: start;
+  justify-content: center;
   flex-direction: column;
   gap: 1rem;
 
@@ -76,21 +79,18 @@ export const DivP = styled.div`
 `;
 
 export const P = styled.p`
-  display: flex;
-  height: 0;
-  padding: 0.8rem;
-  padding-inline: 1.2rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.2rem;
+  padding-inline: 0.8rem;
   border-radius: 4.4375rem;
   border: 1px solid #8e85ff;
   font-size: 0.85rem;
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: max-content;
+  }
 `;
