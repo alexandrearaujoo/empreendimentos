@@ -26,7 +26,7 @@ export const useDeleteEnterprise = (id: number | null) => {
   };
 
   return {
-    loading,
+    loading: loading.current,
     onClick
   };
 };
