@@ -87,7 +87,7 @@ export const useCreateEnterprise = () => {
     try {
       await api.post('/enterprises', data);
     } catch (error) {
-      console.log(error);
+      toast.error('Erro ao criar empreendimento!');
     } finally {
       router.refresh();
       reset();

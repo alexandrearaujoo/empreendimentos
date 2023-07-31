@@ -73,7 +73,7 @@ export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
     try {
       await api.patch(`/enterprises/${enterprise?.id}`, data);
     } catch (error) {
-      console.log(error);
+      toast.error('Erro ao atualizar empreendimento!');
     } finally {
       router.refresh();
       onCloseUpdateModal();
