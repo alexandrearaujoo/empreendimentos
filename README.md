@@ -38,7 +38,7 @@ Para consulta do CEP poderá utilizar API pública [ViaCEP](https://viacep.com.b
 - [x] Styled-components para construção do layout 
 - [x] Responsivo
 - [x] Subir no github
-- [x] Ser publicado na Vercel
+- [] Ser publicado na Vercel
 
 ## Ideias de melhorias
 - [x] Feedback de ações (Sucesso, falha etc)
