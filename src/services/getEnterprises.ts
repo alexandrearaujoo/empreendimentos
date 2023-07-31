@@ -11,7 +11,8 @@ export const getEnterprises = async (page: string) => {
     }
   });
 
-  const lastPage = res.headers.link.split(',')[2] ? false : true;
+  const lastPage =
+    res.headers.link && res.headers.link.split(',')[2] ? false : true;
 
   return { data: res.data, lastPage };
 };

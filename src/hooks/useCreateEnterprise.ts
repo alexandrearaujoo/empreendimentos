@@ -48,6 +48,8 @@ export const useCreateEnterprise = () => {
 
   const handleSetAddress = useCallback(
     (address: Address) => {
+      if (!address.cep) return;
+
       setValue('address.city', address.localidade, {
         shouldValidate: true
       });
@@ -74,11 +76,7 @@ export const useCreateEnterprise = () => {
 
         handleSetAddress(address);
       } catch (error) {
-        if (error instanceof AxiosError) {
-          toast.error('Informe um CEP válido!', { id: 'cep' });
-          return;
-        }
-        toast.error('Erro ao buscar endereço!', { id: 'cep' });
+        toast.error('CEP não encontrado!');
       }
     },
     [handleSetAddress]
