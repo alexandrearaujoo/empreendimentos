@@ -12,7 +12,6 @@ import {
 import { getAddress } from '@/services/getAddress';
 import { modalStore } from '@/stores/modalStore';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AxiosError } from 'axios';
 
 export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
   const router = useRouter();
