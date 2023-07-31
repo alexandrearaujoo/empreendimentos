@@ -56,13 +56,9 @@ export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
 
   const handleFetchAddress = useCallback(
     async (zipCode: string) => {
-      try {
-        const address = await getAddress(zipCode);
+      const address = await getAddress(zipCode);
 
-        handleSetAddress(address);
-      } catch (error) {
-        toast.error('CEP não encontrado!');
-      }
+      handleSetAddress(address);
     },
     [handleSetAddress]
   );
@@ -77,7 +73,7 @@ export const useUpdateEnterprise = (enterprise: Enterprise | null) => {
     try {
       await api.patch(`/enterprises/${enterprise?.id}`, data);
     } catch (error) {
-      toast.error('Erro ao atualizar empreendimento!');
+      console.log(error);
     } finally {
       router.refresh();
       onCloseUpdateModal();

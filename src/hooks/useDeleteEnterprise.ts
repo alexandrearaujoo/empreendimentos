@@ -16,7 +16,7 @@ export const useDeleteEnterprise = (id: number | null) => {
     try {
       await api.delete(`/enterprises/${id}`);
     } catch (error) {
-      toast.error('Erro ao deletar empreendimento');
+      console.log(error);
     } finally {
       loading.current = false;
       router.refresh();

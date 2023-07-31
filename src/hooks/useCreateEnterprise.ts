@@ -70,13 +70,9 @@ export const useCreateEnterprise = () => {
 
   const handleFetchAddress = useCallback(
     async (zipCode: string) => {
-      try {
-        const address = await getAddress(zipCode);
+      const address = await getAddress(zipCode);
 
-        handleSetAddress(address);
-      } catch (error) {
-        toast.error('CEP não encontrado!');
-      }
+      handleSetAddress(address);
     },
     [handleSetAddress]
   );
@@ -91,7 +87,7 @@ export const useCreateEnterprise = () => {
     try {
       await api.post('/enterprises', data);
     } catch (error) {
-      toast.error('Erro ao criar empreendimento!');
+      console.log(error);
     } finally {
       router.refresh();
       reset();
