@@ -1,3 +1,18 @@
 {
-  "enterprises": []
+  "enterprises": [
+    {
+      "status": "Lançamento",
+      "name": "Alexandre Araujo",
+      "purpose": "Residencial",
+      "address": {
+        "district": "Jardim Monte Alegre",
+        "city": "Taboão da Serra",
+        "street": "Rua Vittório D'Amico",
+        "state": "SP",
+        "number": "174",
+        "cep": "06755380"
+      },
+      "id": 1
+    }
+  ]
 }

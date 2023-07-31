@@ -18,37 +18,36 @@ import { ChevronUp } from 'lucide-react';
 const EnterpriseList = ({ enterprises }: { enterprises: Enterprise[] }) => {
   const [page, setPage] = useState(1);
 
-  const { onClick, dataEnterprises, isFetching, isLastPage } = usePagination({
-    enterprises
-  });
+  // const { onClick, dataEnterprises, isFetching, isLastPage } = usePagination({
+  //   enterprises
+  // });
 
-  const { filteredEnterprises, setName } = useFilterByName(dataEnterprises);
+  // const { filteredEnterprises, setName } = useFilterByName(dataEnterprises);
 
   return (
     <>
       <Input
-        disabled={dataEnterprises.length === 0}
         icon
         placeholder="Buscar"
-        onChange={(e) => setName(e.target.value)}
+        // onChange={(e) => setName(e.target.value)}
       />
       <Ul>
-        {filteredEnterprises.length > 0 ? (
+        {/* {filteredEnterprises.length > 0 ? (
           <>
             {filteredEnterprises.map((enterprise) => (
               <Card key={enterprise.id} enterprise={enterprise} />
             ))}
           </>
-        ) : (
-          <>
-            {dataEnterprises.map((enterprise) => (
-              <Card key={enterprise.id} enterprise={enterprise} />
-            ))}
-          </>
-        )}
-        {dataEnterprises.length === 0 && <Empty />}
+        ) : ( */}
+        {/* <> */}
+        {enterprises.map((enterprise) => (
+          <Card key={enterprise.id} enterprise={enterprise} />
+        ))}
+        {/* </> */}
+        {/* )} */}
+        {enterprises.length === 0 && <Empty />}
       </Ul>
-      {!isLastPage && dataEnterprises.length >= 10 && (
+      {/* {!isLastPage && enterprises.length >= 10 && (
         <LoadMore>
           <Button
             onClick={() => {
@@ -66,7 +65,7 @@ const EnterpriseList = ({ enterprises }: { enterprises: Enterprise[] }) => {
             )}
           </Button>
         </LoadMore>
-      )}
+      )} */}
       <BackToTop>
         <Button onClick={scrollToTop}>
           <ChevronUp />
